@@ -1,0 +1,15 @@
+from alumno import Alumno
+
+unAl=Alumno()
+unAl.agregarMateria("Laboratorio")
+unAl.agregarMateria("Matematica")
+unAl.agregarNotaAMateria("Laboratorio",3)
+unAl.agregarNotaAMateria("Laboratorio",7)
+unAl.agregarNotaAMateria("Laboratorio",9)
+unAl.agregarNotaAMateria("Matematica",5)
+print(unAl.promedio("Laboratorio"))
+print(unAl.MenorNotaMateria("Laboratorio"))
+print(unAl.MayorNotaMateria("Laboratorio"))
+print(unAl.PromedioGeneral())
+print(unAl.PromedioMax())
+print(unAl.PromedioMin())
