@@ -18,7 +18,7 @@ class Empleado(object):
         contador=0
         dias_meses = calendar.monthrange(año,mes)[1]
         dias_fue=0
-        for item in range(dias_meses):
+        for item in range(1,dias_meses+1):
             i = datetime.date(año, mes, item)
             if self.lista_horario[i.weekday()]:
                 for pepe in self.lista_asistencia:
