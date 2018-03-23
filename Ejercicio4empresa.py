@@ -5,15 +5,10 @@ class Empresa(object):
 
     def __init__(self):
         lista_empleados = []
-        lista_porcent_empleados = []
 
 
     def agregarEmpleadoALista(self, unEmp):
         self.lista_empleados.append(unEmp)
-    def agregarPorcentajEmp(self,año,mes):
-        x = Empleado()
-        self.lista_porcent_empleados.append(x.porcentajeAsistencia(año,mes))
-        sum(self.lista_porcent_empleados) / len(self.lista_porcent_empleados)
 
     def porcentajeAsistenciaEmpresarial(self,año,mes):
         suma_porcentajes=0
