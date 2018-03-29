@@ -1,14 +1,13 @@
 import datetime
 
-class Jugadores(object):
-    nombre = None
+class Jugadores:
+    nombre_Jug = None
     fecha_nacimiento = None
-    numero_camiseta = None
+    nro_camiseta = None
 
-    def agregarNombreJugador(self,nom):
-        self.nombre = nom
-
-    def agregarFechaNacimiento(self, fecha):
+    def setNombreJug(self,nombreJ):
+        self.nombre_Jug = nombreJ
+    def sefFechaNac(self,fecha):
         self.fecha_nacimiento = fecha
 
     
