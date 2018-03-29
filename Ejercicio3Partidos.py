@@ -1,4 +1,4 @@
-from equipos import  Equipo
+#from Ejercicio3equipo import  Equipo
 
 class Partidos:
 

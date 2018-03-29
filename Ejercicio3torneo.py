@@ -3,13 +3,16 @@ from Ejercicio3Partidos import Partidos
 
 class Torneo:
     def __init__(self):
-        listaEquipos = []
-        listaPosibPartidos = [[[]],[[]],[[]]]  ,  [[[]],[[]],[[]]]  ,  [[[]],[[]],[[]]]  ,  [[[]],[[]],[[]]]  ,  [[[]],[[]],[[]]]  ,  [[[]],[[]],[[]]]  ,  [[[]],[[]],[[]]]
-        fixture = []
+        self.listaEquipos = []
+        self.listaPosibPartidos = [[[]],[[]],[[]]]  ,  [[[]],[[]],[[]]]  ,  [[[]],[[]],[[]]]  ,  [[[]],[[]],[[]]]  ,  [[[]],[[]],[[]]]  ,  [[[]],[[]],[[]]]  ,  [[[]],[[]],[[]]]
+        self.fixture = []
 
 
-    def setEquipo(self, unEquipo):
-        self.listaEquipos.append(unEquipo)
+    def setEquipo(self, nombre_equipo):
+        eq = Equipo(nombre_equipo)
+        self.listaEquipos.append(eq)
+
+
 
     def setPosiblesHorariosPartidos(self):
         for i in range(7):

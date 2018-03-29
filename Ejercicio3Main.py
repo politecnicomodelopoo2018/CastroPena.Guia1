@@ -3,9 +3,9 @@ from Ejercicio3torneo import Torneo
 
 Superliga = Torneo()
 
-Superliga.setEquipo('AAAJ')
+Superliga.setEquipo("AAAJ")
 
-Superliga.listaEquipos[0].nombreEquipo('Argentinos Juniors')
+#Superliga.listaEquipos[0].nombreEquipo('Argentinos Juniors')
 Superliga.listaEquipos[0].setBarrio('Paternal')
 Superliga.listaEquipos[0].setJugador('A')
 Superliga.listaEquipos[0].setJugador('B')

@@ -5,13 +5,14 @@ class Equipo:
     barrio = None
     capitan = None
 
-    def __init__(self):
-        listaJugadores = []
-        listaHorariosQuePuede = [[False,False,False],[False,False,False],[False,False,False],[False,False,False],[False,False,False],[False,False,False],[False,False,False]]
+    def __init__(self,nombre_equipo):
+        self.nombre_equipo = nombre_equipo
+        self.listaJugadores = []
+        self.listaHorariosQuePuede = [[False,False,False],[False,False,False],[False,False,False],[False,False,False],[False,False,False],[False,False,False],[False,False,False]]
 
 
-    def nombreEquipo(self,nombreEquip):
-        self.nombre_equipo = nombreEquip
+    #def nombreEquipo(self,nombreEquip):
+     #   self.nombre_equipo = nombreEquip
 
     def setBarrio(self, nombreBarrio):
         self.barrio = nombreBarrio
