@@ -11,6 +11,6 @@ class Jugadores(object):
     def agregarFechaNacimiento(self, fecha):
         self.fecha_nacimiento = fecha
 
-    
+
 
 
