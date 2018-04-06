@@ -3,9 +3,9 @@ import datetime
 class Registro(object):
 
 
-    fecha_registro=None
-    peso=None
-    altura=None
+    fecha_registro = None
+    peso = None
+    altura = None
 
     def agregarFechaRegistro(self,fecha_reg):
 

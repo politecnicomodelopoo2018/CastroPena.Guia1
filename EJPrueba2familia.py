@@ -1,9 +1,9 @@
 from EjPrueba2personas import Personas
 
 class Familia(object):
-    def __init__(self):
+    def __init__(self, nombre):
         self.lista_personas=[]
-
+        self.nomb_flia = nombre
 
     def agregarPersonaAFamilia(self,unaPersona):
 
@@ -17,7 +17,7 @@ class Familia(object):
 
         for item in self.lista_personas:
 
-            guarda_calorias += item.cantidadCalorias
+            guarda_calorias += item.cantidadCalorias()
 
             contador_personas += 1
 
@@ -31,11 +31,11 @@ class Familia(object):
 
         for item in self.lista_personas:
 
-            if item.cantidadCalorias > max_kcal:
+            if item.cantidadCalorias() > max_kcal:
 
-                max_kcal = item.cantidadCalorias
+                max_kcal = item.cantidadCalorias()
 
-                personaCalMax = item.lista_personas
+                personaCalMax = item
 
 
         return personaCalMax, max_kcal
@@ -45,16 +45,16 @@ class Familia(object):
 
     def minCalorias(self):
 
-        min_kcal = 0
+        min_kcal = self.maxCalorias()[1]
         personaCalMin= None
 
         for item in self.lista_personas:
 
-            if item.cantidadCalorias < min_kcal:
+            if item.cantidadCalorias() < min_kcal:
 
-                min_kcal = item.cantidadCalorias
+                min_kcal = item.cantidadCalorias()
 
-                personaCalMin = item.lista_personas
+                personaCalMin = item
 
 
         return personaCalMin, min_kcal

@@ -22,5 +22,7 @@ class Personas(object):
 
         return total_calorias
 
+    def agregarPlatoALista(self, plato):
 
+        self.lista_platos.append(plato)
 

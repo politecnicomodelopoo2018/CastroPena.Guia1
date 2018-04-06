@@ -40,16 +40,16 @@ class Persona(object):
         cantidad = 0
 
         for item in self.lista_registros:
-            if item.fecha_registro.year() == year:
+            if item.fecha_registro.year == year or item.fecha_registro.year == year+1:
                 cont_peso += item.peso
                 cont_alt +=  item.altura
                 cantidad += 1
 
-        cont_peso = cont_peso / cantidad
-        cont_alt = cont_alt / cantidad
+        if cantidad != 0:
+            cont_peso = cont_peso / cantidad
+            cont_alt = cont_alt / cantidad
 
-        return cont_peso, cont_peso
-
+        return cont_peso, cont_alt
 
 
     def PorcentajeCrecimiento(self,year):
@@ -58,15 +58,15 @@ class Persona(object):
         altura2=0
 
         for item in self.lista_registros:
-            if item.fecha_registro.year() == year:
+            if item.fecha_registro.year == year:
                 altura1=item.altura
                 break
         for item2 in self.lista_registros:
-            if item2.fecha_registro.year() == year+1:
+            if item2.fecha_registro.year == year+1:
                 altura2= item2.altura
                 break
 
-        return altura1 * 100 / altura2
+        return 100 - (altura1 * 100 / altura2)
 
 
 
