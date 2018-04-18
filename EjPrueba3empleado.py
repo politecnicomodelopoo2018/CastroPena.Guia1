@@ -40,7 +40,7 @@ class Empleado(object):
 
     def averiguarDuracionesAlExterior(self):
 
-
+        return
 
 
 
