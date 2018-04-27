@@ -86,6 +86,7 @@ class Album(object):
 
                     ArtistaInfluyente_Parcial = Artista_Parcial
 
+            return ArtistaInfluyente_Parcial
 
 
 
@@ -115,6 +116,10 @@ class Cancion(object):
     def agregarAutorALista(self, UnAut):
 
         self.lista_autor.append(UnAut)
+
+    def devuleveArtistas(self, i):
+
+        return self.lista_artista[i]
 
 
 class Persona(object):
