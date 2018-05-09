@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from materia import Materia
+from Ejercicio1.materia import Materia
 
 
 

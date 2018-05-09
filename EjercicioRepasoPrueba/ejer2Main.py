@@ -1,8 +1,8 @@
 import datetime
 
-from EJPrueba2familia import Familia
-from EjPrueba2personas import Personas
-from EjPrueba2platos import Platos
+from EjercicioRepasoPrueba.EJPrueba2familia import Familia
+from EjercicioRepasoPrueba.EjPrueba2personas import Personas
+from EjercicioRepasoPrueba.EjPrueba2platos import Platos
 
 Los_Andreatinis = Familia("Andreatinis")
 
