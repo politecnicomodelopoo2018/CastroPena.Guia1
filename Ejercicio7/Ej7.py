@@ -16,7 +16,8 @@ class Bufes(object):
 
         self.lista_personas.append(UnPerso)
 
-
+    def mostrarListaPersonas(self):
+        return self.lista_personas
 
 class Pedidos(object):
 
