@@ -65,6 +65,7 @@ while opcion != "9":
                 apell = input("Apellido del alumno a modificar: ")
                 divis = input("División del alumno a modificar: ")
                 item.nombre = name
+
                 item.apellido=apell
                 item.division=divis
             else:
