@@ -1,15 +1,28 @@
 from persona import *
 import json
 
-ListaPers = []
+A = Ciudad()
 
-pers = Persona("Dario", "Cinco", None)
+d = {"personas":[]}
 
-ListaPers.append(pers)
+for item in A.lista_personas:
 
-pers1 = Persona("Nicolas", "Ratini", None)
+    d["personas"].append(item.senialidar())
 
-ListaPers.append(pers1)
+f=open("Personas.json", "w")
 
-A = Fecha("10", "03", "2000")
+f.write(json.dumps(d))
+f.close()
 
+
+
+f = open("Personas.json","r")
+
+d = json.loads(f.read())
+
+f.close()
+
+for item in d["personas"]:
+    UnaPersona=Persona()
+    UnaPersona.desenializar(item)
+    A.lista_personas.append(UnaPersona)

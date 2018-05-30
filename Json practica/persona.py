@@ -1,22 +1,4 @@
-class Fecha(object):
-
-    dia = None
-    mes = None
-    año = None
-
-    def crearFecha(self, day, month, year, datetime):
-
-        self.dia = day
-        self.mes = month
-        self.año = year
-        self.dia = datetime.day
-        self.mes = datetime.month
-        self.año = datetime.year
-
-
-
-        return
-
+import datetime
 
 class Persona(object):
 
@@ -29,6 +11,22 @@ class Persona(object):
         self.nombre = nom
         self.apellido = ape
         self.fecha_nacimiento = fecha
+
+    def senializar(self):
+
+        d = {"nombre" : self.nombre,
+             "apellido": self.apellido,
+             "fecha_nacimiento": str(self.fecha_nacimiento)
+             }
+        #self.fecha_nacimiento.year + self.fecha_nacimiento.month +self.fecha_nacimiento.day
+        return d
+
+    def desenializar(self, UnaP):
+
+        self.nombre = UnaP["nombre"]
+        self.apellido = UnaP["apellido"]
+        self.fecha_nacimiento = datetime.strptime(dict["fecha_nacimiento"],"%d%m%Y").date()
+
 
 
 class Ciudad(object):
@@ -46,16 +44,6 @@ class Ciudad(object):
 
             self.lista_personas.append(unPers)
 
-    def JSON(self):
-
-        diccionario = {"Persona": []}
-
-        for item in self.lista_personas:
-
-            diccionario["Persona"].append({"Nombre" : item.nombre,
-                                           "Apellido" : item.apellido,
-                                           "Fecha Nacimiento" : item.fecha_nacimiento
-                                           })
 
 
 
