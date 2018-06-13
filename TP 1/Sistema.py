@@ -55,12 +55,30 @@ class Sistema(object):
 
     def TripulanteRepiteDias(self):
 
-        lista_aux=[]
+        lista_fechas = self.FechasAux()
 
-        for item in self.lista_vuelos:
+        lista_aux = []
 
-            for item2 in item.lista_tripulacion:
+        lista_rompedoresDeLey = []
 
-                lista_aux = self.FechasAux()
+        for fecha in lista_fechas:
 
+            for vuelo in self.lista_vuelos:
+
+                if vuelo.fecha == fecha:
+
+                    for tripu in vuelo.lista_tripulacion:
+
+                        if tripu in lista_aux:
+
+                                lista_rompedoresDeLey.append(tripu)
+                        else:
+
+                            lista_aux.append(tripu)
+
+
+            lista_aux.clear()
+
+
+        return lista_rompedoresDeLey
 

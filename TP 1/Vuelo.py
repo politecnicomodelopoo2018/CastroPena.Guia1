@@ -84,9 +84,31 @@ class Vuelo(object):
 
 
 
+    def PersonasVIPoEspeciales(self):
+
+        lista_personasVoE = []
+
+        for item in self.lista_pasajeros:
+
+            if item.vip == 1 or item.solicitudesEspeciales != None:
+
+                lista_personasVoE.append(item)
 
 
 
+    def IdiomasHabladosPorVuelo(self):
+
+        lista_idiomaPorVuelo = []
+
+        for item in self.lista_tripulacion:
+
+            if item.__name__ == 'Servicio':
+
+                for idioma in item.lista_idiomas:
+
+                    if idioma not in lista_idiomaPorVuelo:
+
+                        lista_idiomaPorVuelo.append(idioma)
 
 
-
+        return lista_idiomaPorVuelo
