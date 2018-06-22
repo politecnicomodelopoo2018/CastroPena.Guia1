@@ -1,4 +1,6 @@
 from Persona import Persona
+import json
+
 
 class Pasajero(Persona):
 
@@ -14,6 +16,10 @@ class Pasajero(Persona):
         self.fecha_nacimiento=fec_nac
         self.vip=vip2
         self.solicitudesEspeciales=solesp
+
+
+
+
 
 
 

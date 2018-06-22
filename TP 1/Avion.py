@@ -15,5 +15,5 @@ class Avion(object):
 
         self.codigoUnico = d["codigoUnico"]
         self.cantidadPasajerosMaximos = d["cantidadDePasajerosMaxima"]
-        self.cantidadTripulacionNecesaria = d["cantidadDeTripulaciónNecesaria"]
+        self.cantidadTripulacionNecesaria = d["cantidadDeTripulacionNecesaria"]
 

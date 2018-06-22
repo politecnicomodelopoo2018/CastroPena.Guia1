@@ -23,7 +23,7 @@ class Vuelo(object):
 
     def argegarPasajeroALista(self,UnPasaj):
 
-        if self.avion.cantidadPasajerosMaximos < len(self.lista_pasajeros):
+        if self.avion.cantidadPasajerosMaximos > len(self.lista_pasajeros):
 
             if UnPasaj.dni not in self.lista_pasajeros:
 
@@ -34,7 +34,7 @@ class Vuelo(object):
         return self.lista_pasajeros
 
     def PasajeroMasJoven(self):
-
+        print(self.lista_pasajeros)
         fecha_aux_actual = self.lista_pasajeros[0].fecha_nacimiento
 
         persona_aux = []
@@ -64,11 +64,11 @@ class Vuelo(object):
 
         if len(self.lista_tripulacion) < self.avion.cantidadTripulacionNecesaria:
 
-            return "El vuelo no alcanza la tripulacion mínima"
+            return "El vuelo no alcanza la tripulacion minima"
 
         if len(self.lista_tripulacion) >= self.avion.cantidadTripulacionNecesaria:
 
-            return "El vuelo si alcanza la tripulacion mínima"
+            return "El vuelo si alcanza la tripulacion minima"
 
 
     def verificarPersonasNoAutorizadas(self):
@@ -77,10 +77,10 @@ class Vuelo(object):
 
             if self.avion.codigoUnico not in item.lista_aviones:
 
-                return 1
+                return '1'
 
 
-        return 0
+        return '0'
 
 
 
