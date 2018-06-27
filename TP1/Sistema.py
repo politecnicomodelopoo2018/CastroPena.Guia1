@@ -37,13 +37,14 @@ class Sistema(object):
             self.lista_vuelos.append(UnVuelo)
 
 
+    # EJERCICIO 4 (Parte 1)
     def VueloNoAutorizado(self):
 
         lista_aux=[]
 
         for item in self.lista_vuelos:
 
-            if item.verificarPersonasNoAutorizadas() == 1:
+            if item.verificarPersonasNoAutorizadas() == 0:
 
                 lista_aux.append(item)
 
@@ -81,11 +82,12 @@ class Sistema(object):
                         else:
 
                             lista_aux.append(tripu)
-
+            break
 
             del lista_aux[:]
 
         return lista_rompedoresDeLey
+
 
 
     def cargarArchivoAvion(self, archivo):

@@ -29,12 +29,20 @@ class Vuelo(object):
 
                 self.lista_pasajeros.append(UnPasaj)
 
+    def agregarTripulacionALista(self, UnTripulante):
+
+        if UnTripulante.dni not in self.lista_tripulacion:
+            self.lista_tripulacion.append(UnTripulante)
+
+    # EJERCICIO 1 Bien
     def imprimirListaPasajeros(self):
 
         return self.lista_pasajeros
 
+
+    # EJERCICIO 2 Bien
     def PasajeroMasJoven(self):
-        print(self.lista_pasajeros)
+
         fecha_aux_actual = self.lista_pasajeros[0].fecha_nacimiento
 
         persona_aux = []
@@ -45,21 +53,18 @@ class Vuelo(object):
 
                 persona_aux.append(item)
 
-            if fecha_aux_actual < item.fecha_nacimiento:
+            elif fecha_aux_actual < item.fecha_nacimiento:
 
-                persona_aux.removeall()
+                fecha_aux_actual = item.fecha_nacimiento
+
+                del persona_aux[:]
 
                 persona_aux.append(item)
 
         return persona_aux
 
-    def agregarTripulacionALista(self,UnTripulante):
 
-        if UnTripulante.dni not in self.lista_tripulacion:
-
-            self.lista_tripulacion.append(UnTripulante)
-
-
+    # EJERCICIO 3 Bien
     def verificarTripulacion(self):
 
         if len(self.lista_tripulacion) < self.avion.cantidadTripulacionNecesaria:
@@ -70,19 +75,16 @@ class Vuelo(object):
 
             return "El vuelo si alcanza la tripulacion minima"
 
-
+    # EJERCICIO 4 (parte 1)
     def verificarPersonasNoAutorizadas(self):
 
-        for item in self.lista_tripulacion:
+        for tripulante in self.lista_tripulacion:
 
-            if self.avion.codigoUnico not in item.lista_aviones:
+                if self.avion not in tripulante.lista_aviones:
 
-                return '1'
+                    return 0
 
-
-        return '0'
-
-
+        return 1
 
     def PersonasVIPoEspeciales(self):
 
@@ -93,8 +95,6 @@ class Vuelo(object):
             if item.vip == 1 or item.solicitudesEspeciales != None:
 
                 lista_personasVoE.append(item)
-
-
 
     def IdiomasHabladosPorVuelo(self):
 

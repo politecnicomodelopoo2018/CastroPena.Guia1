@@ -14,9 +14,8 @@ class Piloto(Persona):
         self.fecha_nacimiento = fec
         self.dni = dni2
 
-
     def agregarAvionALista(self,UnAvion):
 
-        if UnAvion.codigoUnico not in self.lista_aviones:
+        if UnAvion not in self.lista_aviones:
 
             self.lista_aviones.append(UnAvion)
