@@ -37,7 +37,7 @@ class Sistema(object):
             self.lista_vuelos.append(UnVuelo)
 
 
-    # EJERCICIO 4 (Parte 1)
+    # EJERCICIO 4 (Parte 1) Bien
     def VueloNoAutorizado(self):
 
         lista_aux=[]
@@ -50,6 +50,7 @@ class Sistema(object):
 
         return lista_aux
 
+    # EJERCICIO 5 (Parte 1) Bien
     def FechasAux(self):
 
         lista_aux=[]
@@ -60,9 +61,10 @@ class Sistema(object):
 
         return lista_aux
 
+    # EJERCICIO 5 (Parte 2) Bien
     def TripulanteRepiteDias(self):
 
-        lista_fechas = self.FechasAux()
+        lista_fechas = self.FechasAux() #lista_fechas almacena todas las fechas en la q hay vuelos
 
         lista_aux = []
 

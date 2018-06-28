@@ -8,15 +8,7 @@ import datetime
 
 
 
-def agregarAlumno():
-    AlumnoX = Alumno()
-    name = input("Nombre del alumno: ")
-    apell = input("Apellido del alumno: ")
-    divis = input("División del alumno: ")
-    AlumnoX.crearAlumno(name, apell, divis)
-
 A = Bufes()
-
 
 #Plato1 = Platos()
 #Plato1.crearPlato("Milangas", 120)
@@ -27,11 +19,11 @@ A = Bufes()
 #Pedido1 = Pedidos()
 #Pedido1.crearPedidos(datetime.datetime(2018,5,1),Plato1,Profesor1, datetime.datetime(2018,5,1,13,30),True)
 
-opcion = "0"
+opcion = 1
 
-while opcion != "9":
-    print(A.mostrarListaPersonas())
-    opcion = input("-----MENU-----\n1-AGREGAR ALUMNO\n2-AGREGAR PROFESOR\n3-MODIFICAR ALUMNO\n4-MODIFICAR PROFESOR\n5-ELIMINAR ALUMNO\n6-ELIMINAR PROFESOR\n7-GUARDAR\n8-CARGAR\n9-SALIR\nOPCION: ")
+while opcion != '8':
+
+    opcion = input("-----MENU-----\n1-AGREGAR ALUMNO\n2-AGREGAR PROFESOR\n3-MODIFICAR ALUMNO\n4-MODIFICAR PROFESOR\n5-ELIMINAR ALUMNO\n6-ELIMINAR PROFESOR\n7-GUARDAR\n8-Salir\nOPCION: ")
 
 
     def agregarAlumno():
@@ -48,13 +40,14 @@ while opcion != "9":
                 return "El id Alumno ingresado ya existe"
 
 
-        AlumnoX.id_persona= id_alum
         AlumnoX.nombre = name
         AlumnoX.apellido = apell
+        AlumnoX.id_persona = id_alum
         AlumnoX.division = divis
         A.lista_personas.append(AlumnoX)
-        return "Se ha agregado un Alumno a la lista "
 
+
+        return "EL alumno se cargo Perfectamente"
 
     def modifAlumno(Id_pers):
 
@@ -65,13 +58,14 @@ while opcion != "9":
                 apell = input("Apellido del alumno a modificar: ")
                 divis = input("División del alumno a modificar: ")
                 item.nombre = name
-
                 item.apellido=apell
                 item.division=divis
+
+                return 'El alumno se modifico perfectamente'
+
             else:
 
-                return "El ID alumno ingresado no existe"
-
+                return 'El ID ingresado no existe o no es de un alumno'
 
     def modifProfe(Id_pers):
 
@@ -84,10 +78,12 @@ while opcion != "9":
                 item.nombre = name
                 item.apellido=apell
                 item.porcentaje_descuento=desc
+
+                return 'El profesor se modifico perfectamente'
+
             else:
 
-                return "El ID profesor ingresado no existe"
-
+                return 'El ID ingresado no existe o no es de un profesor'
 
     def agregarProfe():
 
@@ -103,41 +99,20 @@ while opcion != "9":
 
                 return "El id Profesor ingresado ya existe"
 
-        ProfX.id_persona = id_prof
         ProfX.nombre = name
-        ProfX.apellido = apell
+        ProfX.apellidio = apell
+        ProfX.id_persona = id_prof
         ProfX.porcentaje_descuento = porcen_desc
         A.lista_personas.append(ProfX)
-        return "Se ha agregado un Profesor a la lista "
 
+        return "EL profesor se cargo perfectamente"
 
     def eliminarProfe(Id_pers):
 
 
         for item2 in A.lista_personas:
 
-            if item2.id_persona == Id_pers and item2.__class__ == Profesores:
-
-
-                for item in A.lista_pedidos:
-
-                    if item.persona.id_persona == Id_pers:
-
-                        A.lista_pedidos.remove(item)
-
-                for item in A.lista_personas:
-
-                    if item.id_persona == Id_pers:
-
-                        A.lista_personas.remove(item)
-
-
-    def eliminarAlumno(Id_pers):
-
-
-        for item2 in A.lista_personas:
-
-            if item2.id_persona == Id_pers and item2.__class__ == Alumno:
+            if item2.id_personas == Id_pers and item2.__class__ == Profesores:
 
                 for item in A.lista_pedidos:
 
@@ -145,108 +120,79 @@ while opcion != "9":
 
                         A.lista_pedidos.remove(item)
 
-                for item in A.lista_personas:
+                A.lista_personas.remove(item2)
 
-                    if item.id_persona == Id_pers:
-
-                        A.lista_personas.remove(item)
+                return 'El profesor se elimino perfectamente'
 
 
-    def codification():
+        return 'No se pudo eliminar al profesor'
 
-        personas_str = ""
+    def eliminarAlumn(Id_pers):
+
+        for item in A.lista_personas:
+
+            if item.id_persona == Id_pers and item.__class__ == Alumno:
+
+                for item2 in A.lista_pedidos:
+
+                    if item.persona.id_persona == Id_pers:
+
+                        A.lista_pedidos.remove(item2)
+
+                A.lista_personas.remove(item)
+
+                return 'El alumno se elimino perfectamente'
+
+        return 'No se pudo eliminar el alumno'
+
+    def hola():
+
+        string = None
 
         for item in A.lista_personas:
 
             if item.__class__ == Alumno:
 
-                nombre_clase = item.__class__.__name__
-
-                personas_str += nombre_clase+"/"+item.id_persona+"/"+item.nombre+"/"+item.apellido+"/"+item.division+"\n"
+                string += item.id_persona+"|"+item.nombre+"|"+item.apellido+"|"+item.division+"\n"
 
             else:
 
-                nombre_clase = item.__class__.__name__
+                string += item.id_persona + "|" + item.nombre + "|" + item.apellido + "|" + item.porcentaje_descuento + "\n"
 
-                personas_str += nombre_clase+"/"+item.id_persona+"/"+item.nombre+"/"+item.apellido+"/"+item.porcentaje_descuento+"\n"
-
-        return personas_str
+        return string
 
 
+    def guardado():
+
+        f = open("archivo.txt", "w")
+        f.write(hola())
 
 
-    if opcion == "1":
+    if opcion == '1':
 
        print(agregarAlumno())
 
-
-
-    elif opcion == "2":
+    elif opcion == '2':
 
         print(agregarProfe())
 
-    elif opcion == "3":
-
+    elif opcion == '3':
 
         print(modifAlumno(input("Ingrese ID del alumno a modificar: ")))
 
-    elif opcion == "4":
+    elif opcion == '4':
 
+        print(modifProfe(input("Ingrese ID del profesor a modificar: ")))
 
-       print(modifProfe(input("Ingrese ID del alumno a modificar: ")))
+    elif opcion == '5':
 
-    elif opcion == "5":
+        print(eliminarAlumn(input("Ingrese ID del alumno a eliminar: ")))
 
+    elif opcion == '6':
 
-        eliminarAlumno(input("Ingrese ID del alumno a eliminar"))
+        print(eliminarProfe(input("Ingrese ID del profesor a eliminar: ")))
 
+    elif opcion == '7':
 
-    elif opcion == "6":
+        guardado()
 
-        eliminarProfe(input("Ingrese ID del profesor a eliminar"))
-
-    elif opcion == "7":
-
-        f = open("archivo.txt","w")
-
-        f.write(codification())
-
-        f.close()
-
-
-    elif opcion == "8":
-
-        f = open("archivo.txt", "r")
-
-        for line in f:
-
-            line = line.replace('\n','')
-
-            d = line.split('/')
-
-            clase = eval(d[0])
-
-            x = clase()
-
-            if  d[0] == "Alumno":
-
-                x.id_persona = d[1]
-                x.nombre = d[2]
-                x.apellido = d[3]
-                x.division = d[4]
-
-                A.lista_personas.append(x)
-
-            elif d[0] == "Profesores":
-
-                x.id_persona = d[1]
-                x.nombre = d[2]
-                x.apellido = d[3]
-                x.porcentaje_descuento = d[4]
-
-                A.lista_personas.append(x)
-
-    #elif opcion == "9":
-
-        #pepe=0
-        #

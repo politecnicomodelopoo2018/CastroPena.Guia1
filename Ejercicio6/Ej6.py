@@ -16,6 +16,7 @@ class Camioneta(Vehiculos):
     capacidad_carga = 0
 
     def __init__(self, pat, ruedas, año_fab,carga):
+
         self.patente = pat
 
         self.cant_ruedas = ruedas

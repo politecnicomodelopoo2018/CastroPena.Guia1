@@ -75,7 +75,7 @@ class Vuelo(object):
 
             return "El vuelo si alcanza la tripulacion minima"
 
-    # EJERCICIO 4 (parte 1)
+    # EJERCICIO 4 (parte 1) Bien
     def verificarPersonasNoAutorizadas(self):
 
         for tripulante in self.lista_tripulacion:
@@ -86,6 +86,7 @@ class Vuelo(object):
 
         return 1
 
+    # EJERCICIO 6
     def PersonasVIPoEspeciales(self):
 
         lista_personasVoE = []
@@ -96,13 +97,15 @@ class Vuelo(object):
 
                 lista_personasVoE.append(item)
 
+        return lista_personasVoE
+
     def IdiomasHabladosPorVuelo(self):
 
         lista_idiomaPorVuelo = []
 
         for item in self.lista_tripulacion:
 
-            if item.__name__ == 'Servicio':
+            if item.__class__.__name__ == 'Servicio':
 
                 for idioma in item.lista_idiomas:
 
