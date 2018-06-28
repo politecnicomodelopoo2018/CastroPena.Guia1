@@ -21,7 +21,7 @@ A.cargarArchivoVuelo('datos.json')
 print("\n--------------------------------")
 
 
-print("\nEJERCICIO 1:")
+print("\n1) Nomina de personas por vuelo:")
 
 for item in A.lista_vuelos[2].imprimirListaPasajeros():
 
@@ -29,7 +29,7 @@ for item in A.lista_vuelos[2].imprimirListaPasajeros():
 
 print("\n--------------------------------")
 
-print("\nEJERCICIO 2:")
+print("\n2) Pasajero mas joven por vuelo:")
 
 for item in A.lista_vuelos[2].PasajeroMasJoven():
 
@@ -37,13 +37,13 @@ for item in A.lista_vuelos[2].PasajeroMasJoven():
 
 print("\n--------------------------------")
 
-print("\nEJERCICIO 3:")
+print("\n3) Vuelos en los cuales no se alcance la tripulacion minima:")
 
 print(A.lista_vuelos[0].verificarTripulacion())
 
 print("\n--------------------------------")
 
-print("\nEJERCICIO 4:")
+print("\n4) Vuelos tripulados por personas no autorizadas:")
 
 for item in A.VueloNoAutorizado():
 
@@ -51,7 +51,7 @@ for item in A.VueloNoAutorizado():
 
 print("\n--------------------------------")
 
-print("\nEJERCICIO 5:")
+print("\n5) Estableciendo la regla de que la tripulación no puede volar mas de una vez al dia mostrar un listado de los tripulantes que rompen dicha regla:")
 
 for item in A.TripulanteRepiteDias():
 
@@ -59,7 +59,7 @@ for item in A.TripulanteRepiteDias():
 
 print("\n--------------------------------")
 
-print("\nEJERCICIO 6:")
+print("\n6) Personas VIP o con necesidades especiales por vuelo:")
 
 for item in A.lista_vuelos[1].PersonasVIPoEspeciales():
 
@@ -67,7 +67,7 @@ for item in A.lista_vuelos[1].PersonasVIPoEspeciales():
 
 print("\n--------------------------------")
 
-print("\nEJERCICIO 7:")
+print("\n7) Idiomas hablados por la tripulacion en cada vuelo:")
 
 for item in A.lista_vuelos[3].IdiomasHabladosPorVuelo():
 
