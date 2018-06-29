@@ -57,7 +57,9 @@ class Sistema(object):
 
         for item in self.lista_vuelos:
 
-            lista_aux.append(item.fecha)
+            if item not in lista_aux:
+
+                lista_aux.append(item.fecha)
 
         return lista_aux
 
@@ -67,7 +69,7 @@ class Sistema(object):
         lista_fechas = self.FechasAux() #lista_fechas almacena todas las fechas en la q hay vuelos
 
         lista_aux = []
-
+        lista=[]
         lista_rompedoresDeLey = []
 
         for fecha in lista_fechas:
@@ -80,15 +82,18 @@ class Sistema(object):
 
                         if tripu in lista_aux:
 
+                            if tripu not in lista_rompedoresDeLey:
+
                                 lista_rompedoresDeLey.append(tripu)
                         else:
 
                             lista_aux.append(tripu)
-            break
 
+            lista.append({'fecha': fecha,'rompedores':lista_rompedoresDeLey})
             del lista_aux[:]
+            lista_rompedoresDeLey=[]
 
-        return lista_rompedoresDeLey
+        return lista
 
 
 
@@ -165,14 +170,8 @@ class Sistema(object):
             if persona['tipo'] == 'Pasajero':
 
                 Pasaj = Pasajero()
+                vipAux = persona['vip'] == 1
 
-                if persona['vip'] == 1:
-
-                    vipAux = True
-
-                elif persona['vip'] == 0:
-
-                    vipAux = False
 
                 solicitudAux= ''
 

@@ -21,29 +21,47 @@ A.cargarArchivoVuelo('datos.json')
 print("\n--------------------------------")
 
 
-print("\n1) Nomina de personas por vuelo:")
+print("\n1) Nomina de personas por vuelo:\n")
 
-for item in A.lista_vuelos[2].imprimirListaPasajeros():
+for item in A.lista_vuelos:
 
-    print (item.nombre , item.fecha_nacimiento)
+    print(item.origen + "-" + item.destino + " :")
 
-print("\n--------------------------------")
+    for item2 in item.imprimirListaPasajeros():
 
-print("\n2) Pasajero mas joven por vuelo:")
+        print(item2.nombre + " " + item2.apellido)
 
-for item in A.lista_vuelos[2].PasajeroMasJoven():
+    print("\n")
 
-    print(item.nombre)
-
-print("\n--------------------------------")
-
-print("\n3) Vuelos en los cuales no se alcance la tripulacion minima:")
-
-print(A.lista_vuelos[0].verificarTripulacion())
 
 print("\n--------------------------------")
 
-print("\n4) Vuelos tripulados por personas no autorizadas:")
+print("\n2) Pasajero mas joven por vuelo:\n")
+
+for item in A.lista_vuelos:
+
+    print(item.origen + "-" + item.destino + " :")
+
+    for item2 in item.PasajeroMasJoven():
+
+        print(item2.nombre + " " + item2.apellido)
+
+    print("\n")
+
+
+print("\n--------------------------------")
+
+print("\n3) Vuelos en los cuales no se alcance la tripulacion minima:\n")
+
+for item in A.lista_vuelos:
+
+    print(item.origen + "-" + item.destino + " :\n" + item.verificarTripulacion() + "\n")
+
+
+
+print("\n--------------------------------")
+
+print("\n4) Vuelos tripulados por personas no autorizadas:\n")
 
 for item in A.VueloNoAutorizado():
 
@@ -51,26 +69,41 @@ for item in A.VueloNoAutorizado():
 
 print("\n--------------------------------")
 
-print("\n5) Estableciendo la regla de que la tripulación no puede volar mas de una vez al dia mostrar un listado de los tripulantes que rompen dicha regla:")
+print("\n5) Estableciendo la regla de que la tripulacion no puede volar mas de una vez al dia mostrar un listado de los tripulantes que rompen dicha regla:\n")
 
 for item in A.TripulanteRepiteDias():
 
-    print(item.dni)
+    for rompedores in item["rompedores"]:
+
+        print(rompedores.dni + " " + rompedores.nombre + " " + rompedores.apellido)
+
 
 print("\n--------------------------------")
 
-print("\n6) Personas VIP o con necesidades especiales por vuelo:")
+print("\n6) Personas VIP o con necesidades especiales por vuelo:\n")
 
-for item in A.lista_vuelos[1].PersonasVIPoEspeciales():
+for item in A.lista_vuelos:
 
-     print(item.nombre + " " + item.dni)
+    print(item.origen + "-" + item.destino + " :\n")
+
+    for item2 in item.PersonasVIPoEspeciales():
+
+         print(item2.dni + " " + item2.nombre + " " + item2.apellido)
+
+    print ("\n")
 
 print("\n--------------------------------")
 
 print("\n7) Idiomas hablados por la tripulacion en cada vuelo:")
 
-for item in A.lista_vuelos[3].IdiomasHabladosPorVuelo():
+for item in A.lista_vuelos:
 
-    print(item)
+    print(item.origen + "-" + item.destino + " :\n")
+
+    for item2 in item.IdiomasHabladosPorVuelo():
+
+        print(item2)
+
+    print ("\n")
 
 print("\n--------------------------------")
