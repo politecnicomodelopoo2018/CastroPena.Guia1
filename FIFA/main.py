@@ -20,7 +20,35 @@ Org = Organizacion()
 
 #Org.updateOrganizacion(5,"CONCACAF","Africa")
 
-#Org.deleteOrganizacion(13)
+#Org.deleteOrganizacion(2)
 
 
-print(Org.getOrganizacion(1))
+#print(Org.getOrganizacion(1))
+
+Countraia = Pais()
+
+Countraia.setPais("Mongolandia", 1)
+#Countraia.setPais("DarioDownlandia",1)
+
+#Countraia.modifPais(1,"Mogolicolandia",1)
+
+#Countraia.selectPais(1)
+#Countraia.selectPais(2)
+
+Copa = Copa()
+
+#Copa.setCopa("Libertadores",1)
+#Copa.setCopa("Sudamericana",1)
+
+
+Countraia.deletePais(7)
+
+#Copa.deleteCopa(2)
+
+Ligue = Liga()
+
+Ligue.setLiga("Liga BBVA", 11)
+
+Ligue.updateLiga(1, "Liga Santander", 12)
+
+
