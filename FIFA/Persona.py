@@ -7,3 +7,4 @@ class Persona(object):
     fecha_nacimiento = None
     salario = None
     clausula = None
+    idEquipoPertenece = None

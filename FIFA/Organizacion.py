@@ -12,27 +12,50 @@ class Organizacion(object):
         self.lista_copas = []
 
 
-    def setOrganizacion(self, nom, cont):
-
-        BD().run("Insert into Organizacion (idOrganizacion, Nombre, Continente) values (null, '"+nom+"', '"+cont+"');")
-
-    def updateOrganizacion(self,unID, nuevoNom, nuevoCont):
-
-        BD().run("Update Organizacion Set Nombre = '"+nuevoNom+"', Continente = '"+nuevoCont+"' Where idOrganizacion = "+str(unID)+";")
 
 
-    def deleteOrganizacion(self,unID):
+    def crearOrganizacion(self, nom, cont):
 
-        BD().run("Delete from Organizacion Where idOrganizacion = "+str(unID)+";")
+        self.nombre=nom
+        self.continente=cont
 
-    def getOrganizacion(self, unID):
+    def setOrganizacion(self):
+
+        cursor=BD().run("Insert into Organizacion (idOrganizacion, Nombre, Continente) values (null, '"+self.nombre+"', '"+self.continente+"');")
+        self.id=cursor.lastrowid
+
+    def updateOrganizacion(self):
+
+        BD().run("Update Organizacion Set Nombre = '"+self.nombre+"', Continente = '"+self.continente+"' Where idOrganizacion = "+str(self.id)+";")
+
+
+    def deleteOrganizacion(self):
+
+        BD().run("Delete from Organizacion Where idOrganizacion = "+str(self.id)+";")
+
+    @staticmethod
+    def getOrganizacion(cls, unID):
 
         d=BD().run("select * from Organizacion Where idOrganizacion = "+str(unID)+";")
-
+        lista = d.fetchall()
         unaOrg=Organizacion()
 
-        unaOrg.nombre= d[0]["nombre"]
-        unaOrg.continente=d[0]["continente"]
+        unaOrg.nombre= lista[0]["nombre"]
+        unaOrg.continente=lista[0]["continente"]
+        return unaOrg
+
+    @staticmethod
+    def getOrganizaciones(cls):
+
+        d=BD().run("select * from Organizacion;")
+
+        lista_aux=[]
+
+        for item in d:
+
+            lista_aux.append(item)
+
+        return lista_aux
 
 
 

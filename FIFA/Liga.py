@@ -3,24 +3,53 @@ class Liga(object):
 
     id = None
     nombre = None
+    IDPaisPertenecer = None
 
     def __init__(self):
 
         self.lista_equipos=[]
 
+    def crearLiga(self,nom,idPais):
 
-    def selectLiga(self, unID):
+        self.nombre=nom
+        self.IDPaisPertenecer=idPais
 
-        BD().run("Select * from Liga Where idLiga = "+ str(unID)+";")
 
-    def setLiga(self, nom, idPa):
 
-        BD().run("Insert into Liga(idLiga, Nombre, Pais_idPais) values (null, '"+nom+"',"+str(idPa)+");")
 
-    def updateLiga(self, unID, nom, idPa):
+    def setLiga(self):
 
-        BD().run("Update Liga Set Nombre = '"+nom+"', Pais_idPais = " +str(idPa)+" where idCopa = "+str(unID)+";")
+        cursor=BD().run("Insert into Liga(idLiga, Nombre, Pais_idPais) values (null, '"+self.nombre+"',"+str(self.IDPaisPertenecer)+");")
+        self.id = cursor.lastrowid
 
-    def deleteLiga(self, unID):
+    def updateLiga(self):
 
-        BD().run("Delete from Liga where idLiga = '"+str(unID)+"';")
+        BD().run("Update Liga Set Nombre = '"+self.nombre+"', Pais_idPais = " +str(self.IDPaisPertenecer)+" where idLiga = "+str(self.id)+";")
+
+    def deleteLiga(self):
+
+        BD().run("Delete from Liga where idLiga = '"+str(self.id)+"';")
+
+
+    @staticmethod
+    def getLiga(cls, unID):
+        d = BD().run("Select * from Liga where idLiga = " + str(unID) + ";")
+        lista = d.fetchall()
+        UnLiga = Liga()
+        UnLiga.nombre = lista[0]["nombre"]
+        UnLiga.IDPaisPertenecer = lista[0]["IDPaisPertenecer"]
+
+        return UnLiga
+
+    @staticmethod
+    def getLigas(cls):
+
+        d=BD.run("select * from Liga;")
+
+        lista_aux=[]
+
+        for item in d:
+
+            lista_aux.append(item)
+
+        return lista_aux
