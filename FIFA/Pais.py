@@ -14,7 +14,7 @@ class Pais(object):
     def crearPais(self,nom, org):
 
         self.nombre=nom
-        self.OrgPertenecer=org
+        self.IDOrgPertenecer=org
 
 
     def setPais(self):
