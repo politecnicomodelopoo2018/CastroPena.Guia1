@@ -36,7 +36,7 @@ class Equipo(object):
 
 
     @staticmethod
-    def getEquipo(cls,unID):
+    def getEquipo(unID):
 
         d=BD.run("select * from Equipo where idEquipo = '"+str(unID)+"';")
         lista=d.fetchall()
@@ -49,7 +49,7 @@ class Equipo(object):
         return unEquipo
 
     @staticmethod
-    def getEquipos(cls):
+    def getEquipos():
 
         d=BD.run("Select * from Equipo;")
 

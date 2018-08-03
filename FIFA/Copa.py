@@ -9,18 +9,18 @@ class Copa(object):
     def crearCopa(self,nom,org):
 
         self.nombre=nom
-        self.OrgPertenecer=org
+        self.IDOrgPertenecer=org
 
 
     def setCopa(self):
 
-        cursor=BD().run("Insert into Copa(idCopa, Nombre, Organizacion_idOrganizacion) values (null, '"+self.nombre+"',"+ str(self.IDOrgPertenecer)+")")
+        cursor=BD().run("Insert into Copa(idCopa, Nombre, Organizacion_idOrganizacion) values (null, '"+self.nombre+"','"+ str(self.IDOrgPertenecer)+"');")
         self.id = cursor.lastrowid
 
 
     def updateCopa(self):
 
-        BD().run("Update Copa Set Nombre = '"+self.nombre+"', Organizacion_idOrganizacion = " +str(self.IDOrgPertenecer)+" where idCopa = "+str(self.id)+";")
+        BD().run("Update Copa Set Nombre = '"+self.nombre+"', Organizacion_idOrganizacion = '" +str(self.IDOrgPertenecer)+"' where idCopa = '"+str(self.id)+"';")
 
     def deleteCopa(self):
 
@@ -29,19 +29,19 @@ class Copa(object):
 
 
     @staticmethod
-    def getCopa(cls, unID):
+    def getCopa(unID):
 
-        d=BD().run("Select * from Copa Where idCopa = " + str(unID) + ";")
+        d=BD().run("Select * from Copa Where idCopa = '" + str(unID) + "';")
         lista = d.fetchall()
         UnaCopa=Copa()
 
-        UnaCopa.nombre=lista[0]["nombre"]
-        UnaCopa.IDOrgPertenecer=lista[0]["IDOrgPertenecer"]
+        UnaCopa.nombre=lista[0]["Nombre"]
+        UnaCopa.IDOrgPertenecer=lista[0]["Organizacion_idOrganizacion"]
 
         return UnaCopa
 
     @staticmethod
-    def getCopas(cls):
+    def getCopas():
 
         d=BD().run("Select * from Copa")
 
@@ -50,4 +50,6 @@ class Copa(object):
         for item in d:
 
             lista_aux.append(item)
+
+        return lista_aux
 

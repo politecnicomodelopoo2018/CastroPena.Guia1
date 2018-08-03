@@ -34,7 +34,7 @@ class Pais(object):
 
 
     @staticmethod
-    def getPais(cls, unID):
+    def getPais(unID):
 
         d=BD().run("Select * from Pais where idPais = " + str(unID) + ";" )
         lista = d.fetchall()
@@ -45,7 +45,7 @@ class Pais(object):
         return UnPais
 
     @staticmethod
-    def getPaises(cls):
+    def getPaises():
 
         d=BD.run("Select * from Pais")
 

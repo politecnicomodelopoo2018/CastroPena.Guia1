@@ -32,7 +32,7 @@ class Liga(object):
 
 
     @staticmethod
-    def getLiga(cls, unID):
+    def getLiga(unID):
         d = BD().run("Select * from Liga where idLiga = " + str(unID) + ";")
         lista = d.fetchall()
         UnLiga = Liga()
@@ -42,7 +42,7 @@ class Liga(object):
         return UnLiga
 
     @staticmethod
-    def getLigas(cls):
+    def getLigas():
 
         d=BD.run("select * from Liga;")
 

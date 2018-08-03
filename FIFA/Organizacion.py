@@ -21,12 +21,12 @@ class Organizacion(object):
 
     def setOrganizacion(self):
 
-        cursor=BD().run("Insert into Organizacion (idOrganizacion, Nombre, Continente) values (null, '"+self.nombre+"', '"+self.continente+"');")
+        cursor=BD().run("Insert into Organizacion (idOrganizacion, Nombre, Continente) values (null, '"+self.nombre+"','"+self.continente+"');")
         self.id=cursor.lastrowid
 
     def updateOrganizacion(self):
 
-        BD().run("Update Organizacion Set Nombre = '"+self.nombre+"', Continente = '"+self.continente+"' Where idOrganizacion = "+str(self.id)+";")
+        BD().run("Update Organizacion Set Nombre = '"+self.nombre+"', Continente = '"+self.continente+"' Where idOrganizacion = '"+str(self.id)+"';")
 
 
     def deleteOrganizacion(self):
@@ -34,18 +34,18 @@ class Organizacion(object):
         BD().run("Delete from Organizacion Where idOrganizacion = "+str(self.id)+";")
 
     @staticmethod
-    def getOrganizacion(cls, unID):
+    def getOrganizacion(unID):
 
         d=BD().run("select * from Organizacion Where idOrganizacion = "+str(unID)+";")
         lista = d.fetchall()
         unaOrg=Organizacion()
 
-        unaOrg.nombre= lista[0]["nombre"]
-        unaOrg.continente=lista[0]["continente"]
+        unaOrg.nombre= lista[0]["Nombre"]
+        unaOrg.continente=lista[0]["Continente"]
         return unaOrg
 
     @staticmethod
-    def getOrganizaciones(cls):
+    def getOrganizaciones():
 
         d=BD().run("select * from Organizacion;")
 
