@@ -24,19 +24,19 @@ class Pais(object):
 
     def updatePais(self):
 
-        BD().run("Update Pais set Nombre = '"+self.nombre+"' , Organizacion_idOrganizacion = "+str(self.IDOrgPertenecer)+" where idPais = "+str(self.id)+";")
+        BD().run("Update Pais set Nombre = '"+self.nombre+"' , Organizacion_idOrganizacion = '"+str(self.IDOrgPertenecer)+"' where idPais = '"+str(self.id)+"';")
 
 
     def deletePais(self):
 
-        BD().run("Delete from Pais Where idPais ="+str(self.id)+";")
+        BD().run("Delete from Pais Where idPais ='"+str(self.id)+"';")
 
 
 
     @staticmethod
     def getPais(unID):
 
-        d=BD().run("Select * from Pais where idPais = " + str(unID) + ";" )
+        d=BD().run("Select * from Pais where idPais = '" + str(unID) + "';" )
         lista = d.fetchall()
         UnPais= Pais()
         UnPais.nombre = lista[0]["nombre"]
@@ -47,7 +47,7 @@ class Pais(object):
     @staticmethod
     def getPaises():
 
-        d=BD.run("Select * from Pais")
+        d=BD().run("Select * from Pais;")
 
         lista_aux = []
 

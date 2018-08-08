@@ -19,12 +19,12 @@ class Liga(object):
 
     def setLiga(self):
 
-        cursor=BD().run("Insert into Liga(idLiga, Nombre, Pais_idPais) values (null, '"+self.nombre+"',"+str(self.IDPaisPertenecer)+");")
+        cursor=BD().run("Insert into Liga(idLiga, Nombre, Pais_idPais) values (null, '"+self.nombre+"','"+str(self.IDPaisPertenecer)+"');")
         self.id = cursor.lastrowid
 
     def updateLiga(self):
 
-        BD().run("Update Liga Set Nombre = '"+self.nombre+"', Pais_idPais = " +str(self.IDPaisPertenecer)+" where idLiga = "+str(self.id)+";")
+        BD().run("Update Liga Set Nombre = '"+self.nombre+"', Pais_idPais = '" +str(self.IDPaisPertenecer)+"' where idLiga = '"+str(self.id)+"';")
 
     def deleteLiga(self):
 
@@ -33,7 +33,7 @@ class Liga(object):
 
     @staticmethod
     def getLiga(unID):
-        d = BD().run("Select * from Liga where idLiga = " + str(unID) + ";")
+        d = BD().run("Select * from Liga where idLiga = '" + str(unID) + "';")
         lista = d.fetchall()
         UnLiga = Liga()
         UnLiga.nombre = lista[0]["nombre"]
@@ -44,7 +44,7 @@ class Liga(object):
     @staticmethod
     def getLigas():
 
-        d=BD.run("select * from Liga;")
+        d=BD().run("select * from Liga;")
 
         lista_aux=[]
 
