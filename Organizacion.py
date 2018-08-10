@@ -31,7 +31,16 @@ class Organizacion(object):
 
     def deleteOrganizacion(self):
 
-        BD().run("Delete from Organizacion Where idOrganizacion = '"+str(self.id)+"';")
+        contPais = BD().run("select count(*) from Pais where Organizacion_idOrganizacion = '"+str(self.id)+"';")
+        contCopa = BD().run("select count(*) from Copa where Organizacion_idOrganizacion = '"+str(self.id)+"';")
+
+        if(contCopa == 0 and contPais == 0):
+
+            BD().run("Delete from Organizacion Where idOrganizacion = '"+str(self.id)+"';")
+
+        else:
+
+            print("No se puede eliminar porque esta asociado a una tabla")
 
     @staticmethod
     def getOrganizacion(unID):

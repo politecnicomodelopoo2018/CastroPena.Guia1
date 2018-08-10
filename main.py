@@ -53,10 +53,11 @@ DeTe = DT()
 
 while(opcion != 8):
 
+    #opcion = int(input("\n MENU\n 1-ORGANIZACIONES \n 2-COPAS \n 3-PAISES \n 4-LIGAS \n 5-EQUIPOS \n 6-JUGADOR \n 7- DTs \n 8- Salir \n OPCION: "))
 
     if(opcion == 1):
 
-        opcionOrg = int(input("1-CREAR ORGANIZACION \n 2-INSERTAR ORG EN BASE \n 3-VER ORGANIZACIONES DE LA BASE \n 4-MODIFICAR UNA ORGANIZACION \n 5-ELIMINAR UNA ORGANIZACION \n 6-VOLVER AL 1ER MENU \n OPCION: "))
+        opcionOrg = int(input("\n 1-CREAR ORGANIZACION \n 2-INSERTAR ORG EN BASE \n 3-VER ORGANIZACIONES DE LA BASE \n 4-MODIFICAR UNA ORGANIZACION \n 5-ELIMINAR UNA ORGANIZACION \n 6-VOLVER AL 1ER MENU \n OPCION: "))
 
 
         if(opcionOrg == 1):
@@ -106,6 +107,9 @@ while(opcion != 8):
             ORG.deleteOrganizacion()
 
         elif(opcionOrg == 6):
+
+            #opcion = 0
+            #continue
 
             opcion = int(input("\n MENU\n 1-ORGANIZACIONES \n 2-COPAS \n 3-PAISES \n 4-LIGAS \n 5-EQUIPOS \n 6-JUGADOR \n 7- DTs \n 8- Salir \n OPCION: "))
 
@@ -162,7 +166,10 @@ while(opcion != 8):
 
         elif(opcionCopa == 6):
 
-            opcion = int(input("MENU\n 1-ORGANIZACIONES \n 2-COPAS \n 3-PAISES \n 4-LIGAS \n 5-EQUIPOS \n 6-JUGADOR \n 7- DTs \n 8- Salir \n OPCION: "))
+            #opcion = 0
+            #continue
+
+            opcion = int(input("\nMENU\n 1-ORGANIZACIONES \n 2-COPAS \n 3-PAISES \n 4-LIGAS \n 5-EQUIPOS \n 6-JUGADOR \n 7- DTs \n 8- Salir \n OPCION: "))
 
         else:
 
@@ -172,7 +179,7 @@ while(opcion != 8):
     elif(opcion == 3):
 
 
-        opcionPais = int(input("1-CREAR PAIS \n 2-INSERTAR PAIS CREADO \n 3-VER PAISES DE LA BASE \n 4-MODIFICAR UN PAIS \n 5-ELIMINAR UN PAIS \n 6-VOLVER AL 1ER MENU \n OPCION: "))
+        opcionPais = int(input("\n 1-CREAR PAIS \n 2-INSERTAR PAIS CREADO \n 3-VER PAISES DE LA BASE \n 4-MODIFICAR UN PAIS \n 5-ELIMINAR UN PAIS \n 6-VOLVER AL 1ER MENU \n OPCION: "))
 
         if(opcionPais == 1):
 
@@ -216,7 +223,10 @@ while(opcion != 8):
 
         elif(opcionPais == 6):
 
-            opcion = int(input("MENU\n 1-ORGANIZACIONES \n 2-COPAS \n 3-PAISES \n 4-LIGAS \n 5-EQUIPOS \n 6-JUGADOR \n 7- DTs \n 8- Salir \n OPCION: "))
+            #opcion = 0
+            #continue
+
+            opcion = int(input("\nMENU\n 1-ORGANIZACIONES \n 2-COPAS \n 3-PAISES \n 4-LIGAS \n 5-EQUIPOS \n 6-JUGADOR \n 7- DTs \n 8- Salir \n OPCION: "))
 
         else:
             print("se oprimio una opcion incorrecta, vuelva a intentar")
@@ -226,7 +236,7 @@ while(opcion != 8):
 
 
 
-        opcionLiga = int(input("1-CREAR LIGA \n 2-INSERTAR LIGA CREADA \n 3-VER LIGAS DE LA BASE \n 4-MODIFICAR UNA LIGA \n 5-ELIMINAR UNA LIGA \n 6-VOLVER AL 1ER MENU \n OPCION: "))
+        opcionLiga = int(input("\n 1-CREAR LIGA \n 2-INSERTAR LIGA CREADA \n 3-VER LIGAS DE LA BASE \n 4-MODIFICAR UNA LIGA \n 5-ELIMINAR UNA LIGA \n 6-VOLVER AL 1ER MENU \n OPCION: "))
 
         if(opcionLiga == 1):
 
@@ -272,7 +282,10 @@ while(opcion != 8):
 
         elif(opcionLiga == 6):
 
-            opcion = int(input("MENU\n 1-ORGANIZACIONES \n 2-COPAS \n 3-PAISES \n 4-LIGAS \n 5-EQUIPOS \n 6-JUGADOR \n 7- DTs \n 8- Salir \n OPCION: "))
+            #opcion = 0
+            #continue
+
+            opcion = int(input("\nMENU\n 1-ORGANIZACIONES \n 2-COPAS \n 3-PAISES \n 4-LIGAS \n 5-EQUIPOS \n 6-JUGADOR \n 7- DTs \n 8- Salir \n OPCION: "))
 
         else:
 
@@ -282,7 +295,7 @@ while(opcion != 8):
 
     elif(opcion == 5):
 
-        opcionEquipo=int(input("1-CREAR EQUIPO \n 2-INSERTAR EQUIPO CREADA \n 3-VER EQUIPOS DE LA BASE \n 4-MODIFICAR UNA EQUIPOS \n 5-ELIMINAR UN EQUIPO \n 6-VOLVER AL 1ER MENU \n OPCION: "))
+        opcionEquipo=int(input("\n 1-CREAR EQUIPO \n 2-INSERTAR EQUIPO CREADA \n 3-VER EQUIPOS DE LA BASE \n 4-MODIFICAR UNA EQUIPOS \n 5-ELIMINAR UN EQUIPO \n 6-VOLVER AL 1ER MENU \n OPCION: "))
 
 
 
@@ -330,6 +343,8 @@ while(opcion != 8):
 
         elif(opcionEquipo == 6):
 
+            #opcion = 0
+            #continue
 
             opcion = int(input("MENU\n 1-ORGANIZACIONES \n 2-COPAS \n 3-PAISES \n 4-LIGAS \n 5-EQUIPOS \n 6-JUGADOR \n 7- DTs \n 8- Salir \n OPCION: "))
 
@@ -341,7 +356,7 @@ while(opcion != 8):
 
     elif(opcion == 6):
 
-        opcionJugador = int(input("1-CREAR JUGADOR \n 2-INSERTAR JUGADOR CREADA \n 3-VER JUGADORES DE LA BASE \n 4-MODIFICAR UN JUGADOR \n 5-ELIMINAR UN JUGADOR \n 6-VOLVER AL 1ER MENU \n OPCION: "))
+        opcionJugador = int(input("\n  1-CREAR JUGADOR \n 2-INSERTAR JUGADOR CREADA \n 3-VER JUGADORES DE LA BASE \n 4-MODIFICAR UN JUGADOR \n 5-ELIMINAR UN JUGADOR \n 6-VOLVER AL 1ER MENU \n OPCION: "))
 
 
         if(opcionJugador == 1):
@@ -401,6 +416,9 @@ while(opcion != 8):
 
         elif(opcionJugador == 6):
 
+            #opcion = 0
+            #continue
+
             opcion = int(input("MENU\n 1-ORGANIZACIONES \n 2-COPAS \n 3-PAISES \n 4-LIGAS \n 5-EQUIPOS \n 6-JUGADOR \n 7- DTs \n 8- Salir \n OPCION: "))
 
         else:
@@ -410,7 +428,7 @@ while(opcion != 8):
 
     elif(opcion == 7):
 
-        opcionDT = int(input("1-CREAR DT \n 2-INSERTAR DT CREADO \n 3-VER DTs DE LA BASE \n 4-MODIFICAR UN DT \n 5-ELIMINAR UN DT \n 6-VOLVER AL 1ER MENU \n OPCION: "))
+        opcionDT = int(input("\n 1-CREAR DT \n 2-INSERTAR DT CREADO \n 3-VER DTs DE LA BASE \n 4-MODIFICAR UN DT \n 5-ELIMINAR UN DT \n 6-VOLVER AL 1ER MENU \n OPCION: "))
 
         if(opcionDT ==1):
 
@@ -464,7 +482,10 @@ while(opcion != 8):
 
         elif(opcionDT == 6):
 
-            opcion = int(input("MENU\n 1-ORGANIZACIONES \n 2-COPAS \n 3-PAISES \n 4-LIGAS \n 5-EQUIPOS \n 6-JUGADOR \n 7- DTs \n 8- Salir \n OPCION: "))
+            #opcion = 0
+            #continue
+
+            opcion = int(input("\nMENU\n 1-ORGANIZACIONES \n 2-COPAS \n 3-PAISES \n 4-LIGAS \n 5-EQUIPOS \n 6-JUGADOR \n 7- DTs \n 8- Salir \n OPCION: "))
 
         else:
             print("Se oprimio una opcion incorrecta, vuelva a intentar: ")
@@ -473,3 +494,8 @@ while(opcion != 8):
     elif(opcion == 8):
 
         exit()
+
+    else:
+
+        print("Se oprimio una opcion incorrecta, vuelva a intentar: ")
+        opcion = int(input("\nMENU\n 1-ORGANIZACIONES \n 2-COPAS \n 3-PAISES \n 4-LIGAS \n 5-EQUIPOS \n 6-JUGADOR \n 7- DTs \n 8- Salir \n OPCION: "))

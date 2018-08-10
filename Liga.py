@@ -28,8 +28,15 @@ class Liga(object):
 
     def deleteLiga(self):
 
-        BD().run("Delete from Liga where idLiga = '"+str(self.id)+"';")
+        contEquipo = BD().run("Select count(*) from Equipo where Liga_idLiga = '" + str(self.id) + "';")
 
+        if(contEquipo == 0):
+
+            BD().run("Delete from Liga where idLiga = '"+str(self.id)+"';")
+
+        else:
+
+            print("No se puede eliminar porque tiene Equipos asociados a la Liga")
 
     @staticmethod
     def getLiga(unID):

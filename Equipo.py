@@ -35,7 +35,15 @@ class Equipo(object):
 
     def deleteEquipo(self):
 
-        BD().run("delete from Equipo where idEquipo = '"+str(self.id)+"';")
+        contPersonas = BD().run("Select count(*) from Persona where Equipo_idEquipo = '" + str(self.id) + "';")
+
+        if(contPersonas == 0):
+
+            BD().run("delete from Equipo where idEquipo = '"+str(self.id)+"';")
+
+        else:
+
+            print("No se puede eliminar porque tiene Personas asociadas al equipo")
 
 
     @staticmethod

@@ -29,9 +29,15 @@ class Pais(object):
 
     def deletePais(self):
 
-        BD().run("Delete from Pais Where idPais ='"+str(self.id)+"';")
+        contLigas = BD().run("Select count(*) from Liga where Pais_idPais = '"+str(self.id)+"';")
 
+        if(contLigas == 0):
 
+            BD().run("Delete from Pais Where idPais ='"+str(self.id)+"';")
+
+        else:
+
+            print("No se puede eliminar porque tiene Ligas asociados al Pais")
 
     @staticmethod
     def getPais(unID):
