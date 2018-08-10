@@ -226,7 +226,7 @@ while(opcion != 8):
 
 
 
-        opcionLiga = int(input("1-CREAR ORGANIZACION \n 2-INSERTAR LIGA CREADA \n 3-VER LIGAS DE LA BASE \n 4-MODIFICAR UNA LIGA \n 5-ELIMINAR UNA LIGA \n 6-VOLVER AL 1ER MENU \n OPCION: "))
+        opcionLiga = int(input("1-CREAR LIGA \n 2-INSERTAR LIGA CREADA \n 3-VER LIGAS DE LA BASE \n 4-MODIFICAR UNA LIGA \n 5-ELIMINAR UNA LIGA \n 6-VOLVER AL 1ER MENU \n OPCION: "))
 
         if(opcionLiga == 1):
 
@@ -248,9 +248,25 @@ while(opcion != 8):
 
         elif(opcionLiga == 4):
 
+            print(Liga.getLigas())
+
+            updateLigue = int(input("Ingrese el id de la ligue que desea modificar: "))
+
+            Ligue = Liga.getLiga(updateLigue)
+
+            Ligue.nombre = input("Escriba el nombre de la Liga: ")
+
+            Ligue.IDPaisPertenecer = input("Escriba el id del Pais a la que pertenece: ")
+
             Ligue.updateLiga()
 
         elif(opcionLiga == 5):
+
+            print(Liga.getLigas())
+
+            deleteLigue = int(input("Ingrese el id de la Ligaque desea eliminar: "))
+
+            Ligue = Liga.getLiga(deleteLigue)
 
             Ligue.deleteLiga()
 
@@ -290,9 +306,25 @@ while(opcion != 8):
 
         elif(opcionEquipo == 4):
 
+            print(Equipo.getEquipos())
+
+            updateTeam = int(input("Ingrese el id del equipo que desea modificar: "))
+
+            Team = Equipo.getEquipo(updateTeam)
+
+            Team.nombre = input("Escriba el nombre del Equipo: ")
+
+            Team.idLigaFK = input("Escriba el id de la Liga a la que pertenece: ")
+
             Team.updateEquipo()
 
         elif(opcionEquipo == 5):
+
+            print(Equipo.getEquipos())
+
+            deleteTeam = int(input("Inserte el id del Equipo que desea eliminar: "))
+
+            Team = Equipo.getEquipo(deleteTeam)
 
             Team.deleteEquipo()
 

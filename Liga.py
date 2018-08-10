@@ -36,8 +36,10 @@ class Liga(object):
         d = BD().run("Select * from Liga where idLiga = '" + str(unID) + "';")
         lista = d.fetchall()
         UnLiga = Liga()
-        UnLiga.nombre = lista[0]["nombre"]
-        UnLiga.IDPaisPertenecer = lista[0]["IDPaisPertenecer"]
+
+        UnLiga.id = lista[0]["idLiga"]
+        UnLiga.nombre = lista[0]["Nombre"]
+        UnLiga.IDPaisPertenecer = lista[0]["Pais_idPais"]
 
         return UnLiga
 

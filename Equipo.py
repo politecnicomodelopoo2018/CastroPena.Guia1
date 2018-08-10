@@ -45,9 +45,10 @@ class Equipo(object):
         lista=d.fetchall()
         unEquipo= Equipo()
 
-        unEquipo.nombre= lista[0]["nombre"]
-        unEquipo.fecha_creacion= lista[0]["fecha_creacion"]
-        unEquipo.idLigaFK = lista[0]["idLigaFK"]
+        unEquipo.id = lista[0]["idEquipo"]
+        unEquipo.nombre= lista[0]["Nombre"]
+        unEquipo.fecha_creacion= lista[0]["Fecha_Creacion"]
+        unEquipo.idLigaFK = lista[0]["Liga_idLiga"]
 
         return unEquipo
 
