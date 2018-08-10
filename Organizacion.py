@@ -31,15 +31,17 @@ class Organizacion(object):
 
     def deleteOrganizacion(self):
 
-        BD().run("Delete from Organizacion Where idOrganizacion = "+str(self.id)+";")
+        BD().run("Delete from Organizacion Where idOrganizacion = '"+str(self.id)+"';")
 
     @staticmethod
     def getOrganizacion(unID):
 
-        d=BD().run("select * from Organizacion Where idOrganizacion = "+str(unID)+";")
+        d=BD().run("select * from Organizacion Where idOrganizacion = '"+str(unID)+"';")
         lista = d.fetchall()
         unaOrg=Organizacion()
 
+
+        unaOrg.id = lista[0]["idOrganizacion"]
         unaOrg.nombre= lista[0]["Nombre"]
         unaOrg.continente=lista[0]["Continente"]
         return unaOrg

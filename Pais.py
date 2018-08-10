@@ -39,8 +39,10 @@ class Pais(object):
         d=BD().run("Select * from Pais where idPais = '" + str(unID) + "';" )
         lista = d.fetchall()
         UnPais= Pais()
-        UnPais.nombre = lista[0]["nombre"]
-        UnPais.IDOrgPertenecer = lista[0]["IDOrgPertenecer"]
+
+        UnPais.id=lista[0]["idPais"]
+        UnPais.nombre = lista[0]["Nombre"]
+        UnPais.IDOrgPertenecer = lista[0]["Organizacion_idOrganizacion"]
 
         return UnPais
 

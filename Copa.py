@@ -35,6 +35,8 @@ class Copa(object):
         lista = d.fetchall()
         UnaCopa=Copa()
 
+
+        UnaCopa.id = lista[0]["idCopa"]
         UnaCopa.nombre=lista[0]["Nombre"]
         UnaCopa.IDOrgPertenecer=lista[0]["Organizacion_idOrganizacion"]
 
@@ -43,7 +45,7 @@ class Copa(object):
     @staticmethod
     def getCopas():
 
-        d=BD().run("Select * from Copa")
+        d=BD().run("Select * from Copa;")
 
         lista_aux=[]
 

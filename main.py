@@ -82,10 +82,26 @@ while(opcion != 8):
 
         elif(opcionOrg == 4):
 
+            print(Organizacion.getOrganizaciones())
+
+            updateOrg = int(input("Ingrese el id de la organizacion que desea modificar: "))
+
+            ORG = Organizacion.getOrganizacion(updateOrg)
+
+
+            ORG.nombre = input("Escriba el nombre de la organizacion: ")
+
+            ORG.continente = input("Escriba el nombre del continente de la organizacion: ")
+
             ORG.updateOrganizacion()
 
-
         elif(opcionOrg == 5):
+
+            print(Organizacion.getOrganizaciones())
+
+            deleteOrg = int(input("Ingrese el id de la Organizacion que desea eliminar: "))
+
+            ORG = Organizacion.getOrganizacion(deleteOrg)
 
             ORG.deleteOrganizacion()
 
@@ -122,9 +138,25 @@ while(opcion != 8):
 
         elif(opcionCopa == 4):
 
+            print(Copa.getCopas())
+
+            updateCopita = int(input("Ingrese el id de la copa que desea modificar: "))
+
+            COPA = Copa.getCopa(updateCopita)
+
+            COPA.nombre = input("Escriba el nombre de la Copa: ")
+
+            COPA.IDOrgPertenecer = input("Escriba el id de la organizacion a la que pertenece: ")
+
             COPA.updateCopa()
 
         elif(opcionCopa == 5):
+
+            print(Copa.getCopas())
+
+            deleteCopita = int(input("Ingrese el id de la Copa que desea eliminar: "))
+
+            COPA = Copa.getCopa(deleteCopita)
 
             COPA.deleteCopa()
 
@@ -160,9 +192,25 @@ while(opcion != 8):
 
         elif(opcionPais == 4):
 
+            print(PAIS.getPaises())
+
+            updateCountry = int(input("Ingrese el id del pais que desea modificar: "))
+
+            PAIS = Pais.getPais(updateCountry)
+
+            PAIS.nombre = input("Escriba el nombre de la Pais: ")
+
+            PAIS.IDOrgPertenecer = input("Escriba el id de la organizacion a la que pertenece: ")
+
             PAIS.updatePais()
 
         elif(opcionPais == 5):
+
+            print(Pais.getPaises())
+
+            deletePaiss = int(input("Ingrese el id del Pais que desea eliminar: "))
+
+            PAIS = Pais.getPais(deletePaiss)
 
             PAIS.deletePais()
 
@@ -250,6 +298,7 @@ while(opcion != 8):
 
         elif(opcionEquipo == 6):
 
+
             opcion = int(input("MENU\n 1-ORGANIZACIONES \n 2-COPAS \n 3-PAISES \n 4-LIGAS \n 5-EQUIPOS \n 6-JUGADOR \n 7- DTs \n 8- Salir \n OPCION: "))
 
         else:
@@ -262,22 +311,21 @@ while(opcion != 8):
 
         opcionJugador = int(input("1-CREAR JUGADOR \n 2-INSERTAR JUGADOR CREADA \n 3-VER JUGADORES DE LA BASE \n 4-MODIFICAR UN JUGADOR \n 5-ELIMINAR UN JUGADOR \n 6-VOLVER AL 1ER MENU \n OPCION: "))
 
-        Player = Jugador()
 
         if(opcionJugador == 1):
 
             nomJugador = input("Ingrese el nombre del jugador: ")
             apeJugador = input("Ingrese el apellido del jugador: ")
-            dniJugador = input("Ingrese el dni del jugador: ")
+            dniJugador = int(input("Ingrese el dni del jugador: "))
             fecJugador = input("Ingrese fecha de nacimiento de jugador formato YYYY-MM-DD: ")
-            salJugador = input("Ingrese salario del jugador: ")
-            clauJugador = input("Ingrese clausula del jugador: ")
+            salJugador = int(input("Ingrese salario del jugador: "))
+            clauJugador = int(input("Ingrese clausula del jugador: "))
             patJugador = input("Ingrese patrocinador del jugador: ")
-            numJugador = input("Ingrese numero del jugador: ")
+            numJugador = int(input("Ingrese numero del jugador: "))
             posJugador = input("Ingrese posicion del jugador: ")
-            equipoJugador = input("Ingrese id del equipo que pertenece: ")
+            equipoJugador = int(input("Ingrese id del equipo que pertenece: "))
 
-            Player.crearJugador(nomJugador,dniJugador,apeJugador,fecJugador,salJugador,clauJugador,patJugador,nomJugador,posJugador,equipoJugador)
+            Player.crearJugador(nomJugador,dniJugador,apeJugador,fecJugador,salJugador,clauJugador,patJugador,numJugador,posJugador,equipoJugador)
 
 
         elif(opcionJugador==2):
@@ -290,9 +338,32 @@ while(opcion != 8):
 
         elif(opcionJugador == 4):
 
+            print(Jugador.getJugadores())
+
+            updatePlayer = int(input("Ingrese un id del Jugador que se desea modificar: "))
+
+            Player = Jugador.getJugador(updatePlayer)
+
+            Player.nombre = input("Ingrese el nombre del jugador: ")
+            Player.apellido = input("Ingrese el apellido del jugador: ")
+            Player.dni = int(input("Ingrese el dni del jugador: "))
+            Player.fecha_nacimiento = input("Ingrese fecha de nacimiento de jugador formato YYYY-MM-DD: ")
+            Player.salario = int(input("Ingrese salario del jugador: "))
+            Player.clausula = int(input("Ingrese clausula del jugador: "))
+            Player.patrocinador = input("Ingrese patrocinador del jugador: ")
+            Player.numero = int(input("Ingrese numero del jugador: "))
+            Player.posicion = input("Ingrese posicion del jugador: ")
+            Player.idEquipoPertenece = int(input("Ingrese id del equipo que pertenece: "))
+
             Player.updateJugador()
 
         elif(opcionJugador == 5):
+
+            print(Jugador.getJugadores())
+
+            deletePlayer = int(input("Ingrese el id del jugador que desea eliminar: "))
+
+            Player = Jugador.getJugador(deletePlayer)
 
             Player.deleteJugador()
 
@@ -304,6 +375,7 @@ while(opcion != 8):
 
             print("Se oprimio una opcion incorrecta, vuelva a intentar: ")
 
+
     elif(opcion == 7):
 
         opcionDT = int(input("1-CREAR DT \n 2-INSERTAR DT CREADO \n 3-VER DTs DE LA BASE \n 4-MODIFICAR UN DT \n 5-ELIMINAR UN DT \n 6-VOLVER AL 1ER MENU \n OPCION: "))
@@ -312,12 +384,12 @@ while(opcion != 8):
 
             nomDT = input("Ingrese el nombre del DT: ")
             apeDT = input("Ingrese el apellido del DT: ")
-            dniDT = input("Ingrese el dni del DT: ")
+            dniDT = int(input("Ingrese el dni del DT: "))
             fecDT = input("Ingrese fecha de nacimiento de DT formato YYYY-MM-DD: ")
-            salDT = input("Ingrese salario del DT: ")
-            clauDT = input("Ingrese clausula del DT: ")
-            tacDT= input("Ingrese posicion del DT: ")
-            equipoDT = input("Ingrese id del equipo que pertenece: ")
+            salDT = int(input("Ingrese salario del DT: "))
+            clauDT = int(input("Ingrese clausula del DT: "))
+            tacDT= input("Ingrese tactica preferida del DT: ")
+            equipoDT = int(input("Ingrese id del equipo que pertenece: "))
 
             DeTe.crearDT(nomDT,dniDT,apeDT,fecDT,salDT,clauDT,tacDT,equipoDT)
 
@@ -327,13 +399,34 @@ while(opcion != 8):
 
         elif(opcionDT == 3):
 
-            DT.getDTs()
+            print(DT.getDTs())
 
         elif(opcionDT == 4):
+
+            print(DT.getDTs())
+
+            updateDT = int(input("Ingrese id del dt que desea modificar: "))
+
+            DeTe = DT.getDT(updateDT)
+
+            DeTe.nombre = input("Ingrese el nombre del DT: ")
+            DeTe.apellido = input("Ingrese el apellido del DT: ")
+            DeTe.dni = int(input("Ingrese el dni del DT: "))
+            DeTe.fecha_nacimiento = input("Ingrese fecha de nacimiento de DT formato YYYY-MM-DD: ")
+            DeTe.salario = int(input("Ingrese salario del DT: "))
+            DeTe.clausula = int(input("Ingrese clausula del DT: "))
+            DeTe.tactica_preferida = input("Ingrese tactica preferida del DT: ")
+            DeTe.idEquipoPertenece = int(input("Ingrese id del equipo que pertenece: "))
 
             DeTe.updateDT()
 
         elif(opcionDT ==5):
+
+            print(DT.getDTs())
+
+            deleteDeTe = int(input("Ingrese el id del jugador que desea eliminar: "))
+
+            DeTe = DT.getDT(deleteDeTe)
 
             DeTe.deleteDT()
 

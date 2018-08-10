@@ -1,4 +1,6 @@
 from BD import *
+from datetime import *
+
 class Equipo(object):
 
     id = None
@@ -11,9 +13,10 @@ class Equipo(object):
 
         self.lista_personas = []
 
-    def crearEquipo(self,nom,fec, idLigue,):
+    def crearEquipo(self,nom,fec, idLigue):
 
-        d=fec.strftime('%Y-%m-%d')
+
+        d=datetime.strptime(fec, "%Y-%m-%d").date()
 
         self.nombre=nom
         self.fecha_creacion=d
@@ -22,23 +25,23 @@ class Equipo(object):
 
     def setEquipo(self):
 
-        cursor=BD.run("insert into Equipo (idEquipo, Nombre, Liga_idLiga, Fecha_Creacion) values (null, '"+self.nombre+"', '"+str(self.idLigaFK)+"','"+self.fecha_creacion+"');")
+        cursor=BD().run("insert into Equipo (idEquipo, Nombre, Liga_idLiga, Fecha_Creacion) values (null, '"+self.nombre+"', '"+str(self.idLigaFK)+"','"+str(self.fecha_creacion)+"');")
         self.id=cursor.lastrowid
 
 
     def updateEquipo(self):
 
-        BD.run("update Equipo set Nombre = '"+self.nombre+"', Liga_idLiga = '"+str(self.idLigaFK)+"', Fecha_Creacion = '"+self.fecha_creacion+"' where idEquipo = '"+str(self.id)+"';")
+        BD().run("update Equipo set Nombre = '"+self.nombre+"', Liga_idLiga = '"+str(self.idLigaFK)+"', Fecha_Creacion = '"+str(self.fecha_creacion)+"' where idEquipo = '"+str(self.id)+"';")
 
     def deleteEquipo(self):
 
-        BD.run("delete from Equipo where idEquipo = '"+str(self.id)+"';")
+        BD().run("delete from Equipo where idEquipo = '"+str(self.id)+"';")
 
 
     @staticmethod
     def getEquipo(unID):
 
-        d=BD.run("select * from Equipo where idEquipo = '"+str(unID)+"';")
+        d=BD().run("select * from Equipo where idEquipo = '"+str(unID)+"';")
         lista=d.fetchall()
         unEquipo= Equipo()
 
@@ -51,7 +54,7 @@ class Equipo(object):
     @staticmethod
     def getEquipos():
 
-        d=BD.run("Select * from Equipo;")
+        d=BD().run("Select * from Equipo;")
 
         lista_aux = []
 
