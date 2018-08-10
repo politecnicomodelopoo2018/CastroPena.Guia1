@@ -34,7 +34,24 @@ class Organizacion(object):
         contPais = BD().run("select count(*) from Pais where Organizacion_idOrganizacion = '"+str(self.id)+"';")
         contCopa = BD().run("select count(*) from Copa where Organizacion_idOrganizacion = '"+str(self.id)+"';")
 
-        if(contCopa == 0 and contPais == 0):
+        cont1 = None
+        cont2= None
+
+        for item in contCopa:
+
+            cont1 = item["count(*)"]
+
+            break
+
+        for item in contPais:
+
+            cont2 = item["count(*)"]
+
+            break
+
+
+
+        if(cont1 == 0 and cont2 == 0):
 
             BD().run("Delete from Organizacion Where idOrganizacion = '"+str(self.id)+"';")
 
