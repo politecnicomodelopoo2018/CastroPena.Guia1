@@ -41,14 +41,9 @@ class Organizacion(object):
 
             cont1 = item["count(*)"]
 
-            break
-
         for item in contPais:
 
             cont2 = item["count(*)"]
-
-            break
-
 
 
         if(cont1 == 0 and cont2 == 0):

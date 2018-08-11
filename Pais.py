@@ -31,7 +31,13 @@ class Pais(object):
 
         contLigas = BD().run("Select count(*) from Liga where Pais_idPais = '"+str(self.id)+"';")
 
-        if(contLigas == 0):
+        cont1 = None
+
+        for item in contLigas:
+
+            cont1 = item["count(*)"]
+
+        if(cont1 == 0):
 
             BD().run("Delete from Pais Where idPais ='"+str(self.id)+"';")
 

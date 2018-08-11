@@ -12,8 +12,8 @@ import datetime
 
 
 
-BD().setConnection("127.0.0.1","root","alumno","mydb", True, "utf8")
-
+#BD().setConnection("127.0.0.1","root","alumno","mydb", True, "utf8")
+BD().setConnection("127.0.0.1","root","pito","mydb", True, "utf8")
 
 #Org1.setOrganizacion()
 
@@ -326,6 +326,8 @@ while(opcion != 8):
             Team = Equipo.getEquipo(updateTeam)
 
             Team.nombre = input("Escriba el nombre del Equipo: ")
+
+            Team.fecha_creacion = input("Escriba fecha de creacion del equipo con formato YYYY-MM-DD: ")
 
             Team.idLigaFK = input("Escriba el id de la Liga a la que pertenece: ")
 

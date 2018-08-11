@@ -30,7 +30,14 @@ class Liga(object):
 
         contEquipo = BD().run("Select count(*) from Equipo where Liga_idLiga = '" + str(self.id) + "';")
 
-        if(contEquipo == 0):
+        cont1 = None
+
+        for item in contEquipo:
+
+            cont1 = item["count(*)"]
+
+
+        if(cont1 == 0):
 
             BD().run("Delete from Liga where idLiga = '"+str(self.id)+"';")
 

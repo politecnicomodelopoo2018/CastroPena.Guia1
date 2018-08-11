@@ -28,6 +28,8 @@ class Copa(object):
 
 
 
+
+
     @staticmethod
     def getCopa(unID):
 

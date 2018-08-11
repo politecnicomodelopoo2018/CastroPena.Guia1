@@ -37,7 +37,13 @@ class Equipo(object):
 
         contPersonas = BD().run("Select count(*) from Persona where Equipo_idEquipo = '" + str(self.id) + "';")
 
-        if(contPersonas == 0):
+        cont1 = None
+
+        for item in contPersonas:
+            cont1 = item["count(*)"]
+
+
+        if(cont1 == 0):
 
             BD().run("delete from Equipo where idEquipo = '"+str(self.id)+"';")
 
